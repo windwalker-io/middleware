@@ -27,11 +27,6 @@ use Windwalker\Middleware\Middleware;
 
 class TestA extends Middleware
 {
-	/**
-	 * call
-	 *
-	 * @return  mixed
-	 */
 	public function call()
 	{
 		echo ">>> AAAA\n";
@@ -44,17 +39,9 @@ class TestA extends Middleware
 
 class TestB extends Middleware
 {
-	/**
-	 * call
-	 *
-	 * @return  mixed
-	 */
 	public function call()
 	{
 		echo ">>> BBBB\n";
-
-		$this->next->call();
-
 		echo "<<< BBBB\n";
 	}
 }
@@ -80,6 +67,19 @@ The result should be:
 If you don't want to create a class, you want to set a middleware in runtime, using `CallbackMiddleware`
 
 ``` php
+class TestB extends Middleware
+{
+	public function call()
+	{
+		echo ">>> BBBB\n";
+
+        // Add this line
+		$this->next->call();
+
+		echo "<<< BBBB\n";
+	}
+}
+
 $a = new TestA;
 $b = new TestB;
 
@@ -129,11 +129,6 @@ If a middleware call next, we have to make sure there are a next middleware exis
 ``` php
 class TestB extends Middleware
 {
-	/**
-	 * call
-	 *
-	 * @return  mixed
-	 */
 	public function call()
 	{
 		echo ">>> BBBB\n";
