@@ -1,5 +1,5 @@
 {
-	"name": "asika/windwalker-middleware",
+	"name": "windwalker/middleware",
 	"type": "windwalker-package",
 	"description": "Windwalker Middleware package",
 	"keywords": ["windwalker", "framework", "middleware"],
