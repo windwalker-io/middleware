@@ -2,8 +2,8 @@
 /**
  * Part of Windwalker project. 
  *
- * @copyright  Copyright (C) 2011 - 2014 SMS Taiwan, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE
+ * @copyright  Copyright (C) 2008 - 2014 Asikart.com. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
  */
 
 namespace Windwalker\Middleware;
@@ -13,19 +13,19 @@ namespace Windwalker\Middleware;
  *
  * @since 2.0
  */
-abstract class Middleware implements MiddlewareInterface
+abstract class AbstractMiddleware implements MiddlewareInterface
 {
 	/**
 	 * THe next middleware.
 	 *
-	 * @var  MiddlewareInterface
+	 * @var  mixed|MiddlewareInterface
 	 */
 	protected $next = null;
 
 	/**
 	 * Get next middleware.
 	 *
-	 * @return  mixed
+	 * @return  mixed|MiddlewareInterface
 	 */
 	public function getNext()
 	{
@@ -35,9 +35,9 @@ abstract class Middleware implements MiddlewareInterface
 	/**
 	 * Set next middleware.
 	 *
-	 * @param   object $object The middleware object.
+	 * @param   object|MiddlewareInterface $object The middleware object.
 	 *
-	 * @return  Middleware  Return self to support chaining.
+	 * @return  static  Return self to support chaining.
 	 */
 	public function setNext($object)
 	{
